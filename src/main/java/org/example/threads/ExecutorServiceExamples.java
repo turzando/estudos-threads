@@ -1,4 +1,4 @@
-package org.example.executor_service;
+package org.example.threads;
 
 import java.util.ArrayList;
 import java.util.List;

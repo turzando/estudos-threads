@@ -1,4 +1,4 @@
-package org.example.executor_service;
+package org.example.threads;
 
 class Task implements Runnable {
     private final String number;

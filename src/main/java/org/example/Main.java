@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.executor_service.VirtualThreadExample;
+import org.example.threads.VirtualThreadExample;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,9 +13,13 @@ public class Main {
 
 //        ExecutorServiceExamples.shutdownNow();
 //        ExecutorServiceExamples.awaitTermination();
+
 //        VirtualThreadExample.runWithCooperativeScheduling();
 //        VirtualThreadExample.runWithoutCooperativeScheduling();
-        VirtualThreadExample.runWithPinnedVirtualThreads();
+//        VirtualThreadExample.runWithPinnedVirtualThreads();
+        VirtualThreadExample.run();
+
     }
+
 }
 

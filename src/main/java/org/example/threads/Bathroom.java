@@ -1,4 +1,4 @@
-package org.example.executor_service;
+package org.example.threads;
 
 import java.time.Duration;
 import java.util.Date;

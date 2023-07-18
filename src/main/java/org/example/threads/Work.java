@@ -1,13 +1,11 @@
-package org.example.executor_service;
+package org.example.threads;
 
 import lombok.SneakyThrows;
 
 import java.time.Duration;
 import java.util.Date;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
-import static org.example.executor_service.VirtualThreadExample.alwaysTrue;
+import static org.example.threads.VirtualThreadExample.alwaysTrue;
 
 public class Work {
 

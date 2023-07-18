@@ -1,14 +1,40 @@
-package org.example.executor_service;
+package org.example.threads;
 
 import lombok.SneakyThrows;
 
 import java.time.Duration;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 public class VirtualThreadExample {
 
-
   static ThreadLocal<String> context = new ThreadLocal<>();
+
+  public static void run() {
+    try {
+      final ThreadFactory factory = Thread.ofVirtual().name("routine-", 0).factory();
+      try (var executor = Executors.newThreadPerTaskExecutor(factory)) {
+        var bathTime =
+            executor.submit(
+                () -> {
+                  System.out.println("I'm going to take a bath - " + Thread.currentThread());
+                  System.out.println("I'm done with the bath - " + Thread.currentThread());
+                });
+        var boilingWater =
+            executor.submit(
+                () -> {
+                  System.out.println("I'm going to boil some water - " + Thread.currentThread());
+                  System.out.println("I'm done with the water - " + Thread.currentThread());
+                });
+        bathTime.get();
+        boilingWater.get();
+      }
+    } catch (InterruptedException | ExecutionException exception) {
+      System.out.println(exception.getMessage());
+    }
+  }
 
   public static void runWithCooperativeScheduling() {
     try {
