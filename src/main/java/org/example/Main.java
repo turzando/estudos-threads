@@ -14,10 +14,9 @@ public class Main {
 //        ExecutorServiceExamples.shutdownNow();
 //        ExecutorServiceExamples.awaitTermination();
 
-//        VirtualThreadExample.runWithCooperativeScheduling();
-//        VirtualThreadExample.runWithoutCooperativeScheduling();
-//        VirtualThreadExample.runWithPinnedVirtualThreads();
         VirtualThreadExample.run();
+//        VirtualThreadExample.runWithCooperativeScheduling();
+//        VirtualThreadExample.runWithPinnedVirtualThreads();
 
     }
 

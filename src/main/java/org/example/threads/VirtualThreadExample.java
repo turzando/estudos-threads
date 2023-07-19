@@ -48,25 +48,15 @@ public class VirtualThreadExample {
     }
   }
 
-  public static void runWithoutCooperativeScheduling() {
-    try {
-      var artur = easyWork();
-      var tony = takeABreak();
-
-      artur.join();
-      tony.join();
-    } catch (InterruptedException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
   public static void runWithPinnedVirtualThreads() {
     try {
       var artur = goToTheBathroom();
       var tony = takeABreak();
+      var tutu = easyWork();
 
       artur.join();
       tony.join();
+      tutu.join();
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
     }
@@ -75,13 +65,13 @@ public class VirtualThreadExample {
     return virtualThread(
         "Take a break",
         () -> {
-          System.out.println("I'm going to take a break | " + new Date() + " " + Thread.currentThread());
+          System.out.println("I'm going to take a break | " + Thread.currentThread());
           try {
             sleep(Duration.ofSeconds(1));
           } catch (InterruptedException e) {
             throw new RuntimeException(e);
           }
-          System.out.println("I'm done with the break | " + new Date() + " " + Thread.currentThread());
+          System.out.println("I'm done with the break | " + Thread.currentThread());
         });
   }
 
